@@ -8,7 +8,6 @@ export default function WeatherCard(props: any) {
   const [city, setcity] = useState<any[]>([]);
   const [message, setMessage] = useState<string>("");
 
-  // const weather = get();
   const getCity = async () => {
     try {
       const response: any = await fetch("/api/cities", {
@@ -35,15 +34,14 @@ export default function WeatherCard(props: any) {
   const deleteCity = async (cityId: string) => {
     console.log(cityId);
     try {
-      const deleteCard: any = await fetch(
-        "http://localhost:3000/api/cities/delete",
-        {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: cityId }),
-        }
-      );
+      const deleteCard: any = await fetch("api/cities", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: cityId }),
+      });
+
       const data = await deleteCard.json();
+
       if (deleteCard.status === 200) {
         console.log("ville supprimé", cityId);
         setMessage("ville supprimée avec succés");

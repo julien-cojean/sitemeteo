@@ -22,7 +22,7 @@ const SearchCity: React.FC<SearchCityProps> = ({ setcity, getCity }) => {
     setMessage("");
 
     try {
-      const city: any = await fetch("http://localhost:3000/api/cities/add", {
+      const city: any = await fetch("api/cities", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cityName }),
