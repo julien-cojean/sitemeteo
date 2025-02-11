@@ -76,15 +76,17 @@ export default function WeatherCard(props: any) {
         {city?.map((items: any, index: any) => (
           <div
             key={index}
-            className="flex relative items-center bg-emerald-200 border border-gray-200 rounded-lg shadow  md:max-w-md hover:bg-gray-100"
+            className="flex relative items-center bg-emerald-200 border border-gray-200 rounded-lg shadow  md:max-w-md hover:bg-gray-100 overflow-hidden"
           >
-            <div className="flex justify-center items-center p-4 w-full md:w-24">
+            <div className="flex justify-center items-center p-2 w-full md:w-24">
               {getWeatherIcon(items.main)}
             </div>
-            <div className="flex justify-between items-center  p-4 leading-normal">
-              <h5 className="m-7 text-2xl font-bold tracking-tight text-gray-900 gap-5  max-width: 160px first-letter:uppercase">
+            <div className="flex flex-col justify-between items-center  p-4 leading-normal w-full">
+              <h5 className="m-5 text-2xl font-bold tracking-tight text-gray-900 gap-5  max-w-36 first-letter:uppercase">
                 {items.cityName}
-                <div className="font-normal">{items.country}</div>
+                <div className="font-normal items-center justify-center">
+                  {items.country}
+                </div>
               </h5>
               <p className="mb-3 flex flex-col font-normal items-center justify-center text-gray-700">
                 {items.main}
